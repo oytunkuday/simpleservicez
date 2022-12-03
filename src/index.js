@@ -14,7 +14,8 @@ async function db() {
         useUnifiedTopology: true,
       }
     )
-    .then(() => console.log("DB Connection established!"));
+    .then(() => console.log("DB Connection established!"))
+    .catch((err) => console.log(err));
 }
 
 db();
