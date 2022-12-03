@@ -8,7 +8,11 @@ const port = 3000;
 async function db() {
   await mongoose
     .connect(
-      "mongodb+srv://oytunkuday:Q9kQ1Anrp1Nj5zYD@simpleservicez.yptjr5t.mongodb.net/?retryWrites=true&w=majority"
+      "mongodb+srv://oytunkuday:Q9kQ1Anrp1Nj5zYD@simpleservicez.yptjr5t.mongodb.net/?retryWrites=true&w=majority",
+      {
+        useNewUrlParser: true,
+        useUnifiedTopology: true,
+      }
     )
     .then(() => console.log("DB Connection established!"));
 }
