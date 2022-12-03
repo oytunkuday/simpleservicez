@@ -2,7 +2,7 @@ const mongoose = require("mongoose");
 const express = require("express");
 const app = require("./api/app");
 const bodyParser = require("body-parser");
-
+var http = require('http');
 const port = 3000;
 
 async function db() {
@@ -17,6 +17,7 @@ async function db() {
     .then(() => console.log("DB Connection established!"))
     .catch((err) => console.log(err));
 }
+app.use(bodyParser.urlencoded({extended: false}));
 
 db();
 app.listen(port, () => {

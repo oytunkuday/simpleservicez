@@ -3,6 +3,8 @@ var crypto = require("crypto");
 
 exports.createHash = async (req, res) => {
   try {
+    console.log(req);
+
     var input = req.body.msg;
     var hash = crypto.createHash("sha256").update(input).digest("hex");
     const newMessage = await Message.create({ msg: input, hashedmsg: hash });
@@ -29,9 +31,6 @@ exports.getMessage = async (req, res) => {
       hashedMessage: msg[0].msg,
     });
   } catch (err) {
-    res.status(404).json({
-      status: "Fail",
-      message: err,
-    });
+    res.send("404 NOT FOUND -  NO CORRESPONDING MESSAGE", 404); 
   }
 };
